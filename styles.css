@@ -1,0 +1,158 @@
+.text-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+
+.voices-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.audio-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+
+.stars-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    align-self: center;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.stars-rating span {
+    display: flex;
+    flex-direction: row;
+}
+
+.stars-rating h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.fa-star {
+    cursor: pointer;
+    font-size: 50px;
+    color: lightgray;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.fa-star:hover {
+    transform: scale(1.2);
+}
+
+.checked-star {
+    color: gold;
+}
+
+
+.multiple-choice {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    gap: 10px;
+}
+
+.multiple-choice .question h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+
+
+.multiple-choice label {
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+}
+
+.voice-qualities {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.voice-qualities h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.voice-qualities label {
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.voice-qualities input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #007BFF;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.slider-container input[type="range"] {
+    width: 40%;
+    margin: 10px 0;
+}
+
+.rank-container {
+    background-color: #ffffff;
+    padding: 1px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    gap: 10px;
+}
+#rankList {
+    list-style: none;
+    padding: 0;
+}
+
+#rankList li {
+    padding: 8px 12px;
+    margin: 4px 0;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: move;
+}
