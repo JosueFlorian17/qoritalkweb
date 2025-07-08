@@ -12,31 +12,43 @@ function rateVoice(rating) {
 
 const slider = document.getElementById("naturalness-slider");
 const sliderValue = document.getElementById("slider-value");
-slider.oninput = function () {
-    sliderValue.innerHTML = this.value;
+
+function updateSliderText(value) {
+    const iaPercent = value * 10;
+    const humanPercent = 100 - iaPercent;
+    sliderValue.innerHTML = `${iaPercent}% IA, ${humanPercent}% humano`;
 }
 
+slider.oninput = function () {
+    updateSliderText(this.value);
+};
+
+// Inicializar el texto al cargar
+updateSliderText(slider.value);
+
+
+// Mostrar/ocultar el contenedor de departamentos según la voz seleccionada
+function toggleDepartamento(radio) {
+                const container = document.getElementById('departamento-container');
+                if (radio.value === 'Perú' && radio.checked) {
+                    container.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
+                    document.getElementById('departamento').selectedIndex = 0;
+                }
+            }
+            // Inicializar visibilidad al cargar
+            window.addEventListener('DOMContentLoaded', function() {
+                const radios = document.getElementsByName('voice');
+                let peruChecked = false;
+                radios.forEach(r => {
+                    if (r.value === 'Perú' && r.checked) peruChecked = true;
+                });
+                document.getElementById('departamento-container').style.display = peruChecked ? 'block' : 'none';
+            });
 
 
 
-// drag and drop rank de voces
-const list = document.getElementById('rankList');
-let dragItem = null;
-list.addEventListener('dragstart', e => { dragItem = e.target; });
-list.addEventListener('dragover', e => e.preventDefault());
-list.addEventListener('drop', e => {
-    e.preventDefault();
-    if (e.target.tagName === 'LI' && dragItem !== e.target) {
-        const items = [...list.children];
-        const dragIndex = items.indexOf(dragItem);
-        const dropIndex = items.indexOf(e.target);
-        if (dragIndex < dropIndex) {
-            list.insertBefore(dragItem, e.target.nextSibling);
-        } else {
-            list.insertBefore(dragItem, e.target);
-        }
-    }
-});
 
 
 

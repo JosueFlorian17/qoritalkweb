@@ -33,66 +33,69 @@
             </audio>
         </div>
 
-        <div class="audio-container" id="Qoritalk-audio">
-            <p>Escucha la frase</p>
-            <audio id="qoritalk-player" controls>
-                <source
-                    src="https://qoritalk.com/api/tts?text=Hoy%20me%20gusta%20la%20vida%20mucho%20menos,%20pero%20siempre%20me%20gusta%20vivir.&voice=es-ES-Standard-A"
-                    type="audio/mpeg">
-                Tu navegador no soporta el elemento de audio.
-            </audio>
-        </div>
-
-
-        <div class="audio-container" id="Elevenlabs-audio">
-            <p>Escucha la frase</p>
-            <audio id="qoritalk-player-2" controls>
-                <source
-                    src="https://qoritalk.com/api/tts?text=Hoy%20me%20gusta%20la%20vida%20mucho%20menos,%20pero%20siempre%20me%20gusta%20vivir.&voice=es-ES-Standard-B"
-                    type="audio/mpeg">
-                Tu navegador no soporta el elemento de audio.
-            </audio>
-        </div>
-
 
     </div>
 
 
     <div class="form-container">
-        <div class="stars-rating">
-            <h2>¿Qué te parece la voz?</h2>
-            <div class="stars">
-                <span class="fa fa-star" onclick="rateVoice(1)"></span>
-                <span class="fa fa-star" onclick="rateVoice(2)"></span>
-                <span class="fa fa-star" onclick="rateVoice(3)"></span>
-                <span class="fa fa-star" onclick="rateVoice(4)"></span>
-                <span class="fa fa-star" onclick="rateVoice(5)"></span>
+        
+        
+        <div class="multiple-choice">
+            <div class="question">
+                <h2>¿Cuál diría usted que es el origen de la persona que habla en este audio?</h2>
+                <label>
+                    <input type="radio" name="voice" value="Perú" checked onchange="toggleDepartamento(this)">
+                    Perú
+                </label>
+                <div id="departamento-container">
+                    <label for="departamento">Departamento:</label>
+                    <select id="departamento" name="departamento">
+                        <option value="">Seleccione un departamento</option>
+                        <option value="Amazonas">Amazonas</option>
+                        <option value="Áncash">Áncash</option>
+                        <option value="Apurímac">Apurímac</option>
+                        <option value="Arequipa">Arequipa</option>
+                        <option value="Ayacucho">Ayacucho</option>
+                        <option value="Cajamarca">Cajamarca</option>
+                        <option value="Callao">Callao</option>
+                        <option value="Cusco">Cusco</option>
+                        <option value="Huancavelica">Huancavelica</option>
+                        <option value="Huánuco">Huánuco</option>
+                        <option value="Ica">Ica</option>
+                        <option value="Junín">Junín</option>
+                        <option value="La Libertad">La Libertad</option>
+                        <option value="Lambayeque">Lambayeque</option>
+                        <option value="Lima">Lima</option>
+                        <option value="Loreto">Loreto</option>
+                        <option value="Madre de Dios">Madre de Dios</option>
+                        <option value="Moquegua">Moquegua</option>
+                        <option value="Pasco">Pasco</option>
+                        <option value="Piura">Piura</option>
+                        <option value="Puno">Puno</option>
+                        <option value="San Martín">San Martín</option>
+                        <option value="Tacna">Tacna</option>
+                        <option value="Tumbes">Tumbes</option>
+                        <option value="Ucayali">Ucayali</option>
+                    </select>
+                </div>
+                <br>
+                <label>
+                    <input type="radio" name="voice" value="latam" onchange="toggleDepartamento(this)">
+                    Latinoamérica
+                </label><br>
+                <label>
+                    <input type="radio" name="voice" value="España" onchange="toggleDepartamento(this)">
+                    España
+                </label><br>
+                <label>
+                    <input type="radio" name="voice" value="otro" onchange="toggleDepartamento(this)">
+                    Otro
+                </label>
             </div>
         </div>
     </div>
-
-
-    <div class="multiple-choice">
-        <div class="question">
-            <h2>¿Qué voz prefieres?</h2>
-            <label>
-                <input type="radio" name="voice" value="OpenAI" checked>
-                OpenAI
-            </label><br>
-            <label>
-                <input type="radio" name="voice" value="Qoritalk">
-                Qoritalk
-            </label><br>
-            <label>
-                <input type="radio" name="voice" value="Elevenlabs">
-                Elevenlabs
-            </label>
-
-        </div>
-    </div>
-
-    <div class="voice-qualities">
-        <h2>¿Qué cualidades te gustan de la voz?</h2>
+        <div class="voice-qualities">
+        <h2>¿Qué sensación te transmite esta voz?</h2>
         <label>
             <input type="checkbox" name="qualities" value="Naturalidad">
             Naturalidad
@@ -102,33 +105,42 @@
             Claridad
         </label><br>
         <label>
-            <input type="checkbox" name="qualities" value="Expresividad">
-            Expresividad
+            <input type="checkbox" name="qualities" value="Cercanía">
+            Cercanía
         </label><br>
         <label>
-            <input type="checkbox" name="qualities" value="Velocidad">
-            Velocidad
+            <input type="checkbox" name="qualities" value="Confianza">
+            Confianza
         </label><br>
 
     </div>
 
     <div class="slider-container">
-        <h2>¿Qué tan natural te parece la voz?</h2>
-        <input type="range" min="1" max="10" value="5" class="slider" id="naturalness-slider">
-        <p>Valor: <span id="slider-value">5</span></p>
-
+        <h2>¿Con qué confianza diría que este audio corresponde a una grabación de un humano o una generación por IA?</h2>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="https://img.icons8.com/ios-filled/40/robot-2.png" alt="IA" title="IA" style="width:32px;height:32px;">
+            <input type="range" min="1" max="10" value="5" class="slider" id="naturalness-slider" style="flex:1;">
+            <img src="https://img.icons8.com/ios-filled/40/user-male-circle.png" alt="Humano" title="Humano" style="width:32px;height:32px;">
+            
+        </div>
+        <span id="slider-value" style="margin-left:10px;">5</span>
     </div>
 
-    <div class="rank-container">
-        <fieldset style="border: 1px solid #ffffff; padding: 20px; border-radius: 8px;">
-            <p>Ordena las variantes de audio (arrastrar y soltar):</p>
-            <ul id="rankList">
-                <li draggable="true">Audio 1</li>
-                <li draggable="true">Audio 2</li>
-                <li draggable="true">Audio 3</li>
-            </ul>
-        </fieldset>
-    </div>
+    
+    
+    <div class="stars-rating">
+            <h2>Califica este audio</h2>
+            <span>Basado en su nivvel de claridad, entonación, fluidez, expresividad y naturalidad</span>
+            <br>
+            <div class="stars">
+                <span class="fa fa-star" onclick="rateVoice(1)"></span>
+                <span class="fa fa-star" onclick="rateVoice(2)"></span>
+                <span class="fa fa-star" onclick="rateVoice(3)"></span>
+                <span class="fa fa-star" onclick="rateVoice(4)"></span>
+                <span class="fa fa-star" onclick="rateVoice(5)"></span>
+            </div>
+        </div>
+
 
     </div>
 
