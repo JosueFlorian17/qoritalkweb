@@ -44,11 +44,11 @@
             <div class="question">
                 <h2>¿Cuál diría usted que es el origen de la persona que habla en este audio?</h2>
                 <label>
-                    <input type="radio" name="voice" value="Perú" checked onchange="toggleDepartamento(this)">
+                    <input type="radio" name="voice" value="Perú" onchange="toggleDepartamento(this)">
                     Perú
                 </label>
                 <div id="departamento-container">
-                    <label for="departamento">Departamento:</label>
+                    <label for="departamento">¿Puedes identificar una región específica del Perú al escuchar esta voz?</label>
                     <select id="departamento" name="departamento">
                         <option value="">Seleccione un departamento</option>
                         <option value="Amazonas">Amazonas</option>
@@ -88,7 +88,7 @@
                     España
                 </label><br>
                 <label>
-                    <input type="radio" name="voice" value="otro" onchange="toggleDepartamento(this)">
+                    <input type="radio" name="voice" value="otro" checked onchange="toggleDepartamento(this)">
                     Otro
                 </label>
             </div>
@@ -126,7 +126,20 @@
         <span id="slider-value" style="margin-left:10px;">5</span>
     </div>
 
-    
+    <div class="multiple-choice">
+            <div class="question">
+                <h2>¿Cuál diría usted que es el origen de la persona que habla en este audio?</h2>
+                <label>
+                    <input type="radio" name="voice" value="Sí" >
+                    Sí
+                </label>
+                <label>
+                    <input type="radio" name="voice" value="No">
+                    No
+                </label>
+            </div>
+        </div>
+    </div>
     
     <div class="stars-rating">
             <h2>Califica este audio</h2>
@@ -143,6 +156,9 @@
 
 
     </div>
+    <div style="margin-top: 20px; text-align: center;">
+    <button id="next-audio-btn" onclick="nextAudio()">Siguiente</button>
+</div>
 
 </body>
 <script src="script.js"></script>

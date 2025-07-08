@@ -1,0 +1,33 @@
+[
+    {
+        "timestamp": "2025-07-07T22:02:01.742230",
+        "respuestas": [
+            {
+                "audio_id": 1,
+                "origin": "Sí",
+                "region": null,
+                "qualities": [
+                    "Claridad"
+                ],
+                "human_confidence": 10,
+                "stars": 1
+            },
+            {
+                "audio_id": 2,
+                "origin": "Sí",
+                "region": null,
+                "qualities": [],
+                "human_confidence": 5,
+                "stars": 0
+            },
+            {
+                "audio_id": 3,
+                "origin": "Sí",
+                "region": null,
+                "qualities": [],
+                "human_confidence": 5,
+                "stars": 0
+            }
+        ]
+    }
+]
