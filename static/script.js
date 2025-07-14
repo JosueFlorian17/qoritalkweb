@@ -1,15 +1,15 @@
 const audios = [
     {
         id: 1,
-        url: "https://qoritalk.com/api/tts?text=Hoy%20me%20gusta%20la%20vida%20mucho%20menos,%20pero%20siempre%20me%20gusta%20vivir.&voice=es-ES-Standard-A"
+        url: "audio1.wav"
     },
     {
         id: 2,
-        url: "https://qoritalk.com/api/tts?text=Hoy%20me%20gusta%20la%20vida%20mucho%20menos,%20pero%20siempre%20me%20gusta%20vivir.&voice=es-ES-Standard-B"
+        url: "audio2.wav"
     },
     {
         id: 3,
-        url: "https://qoritalk.com/api/tts?text=Hoy%20me%20gusta%20la%20vida%20mucho%20menos,%20pero%20siempre%20me%20gusta%20vivir.&voice=es-ES-Standard-C"
+        url: "audio3.wav"
     }
 ];
 
@@ -64,7 +64,7 @@ function resetForm() {
     document.getElementById("slider-value").textContent = 5;
     document.querySelectorAll(".fa-star").forEach(s => s.classList.remove("checked-star"));
     document.querySelectorAll('input[name="qualities"]').forEach(c => c.checked = false);
-    document.qurySelector('input[name="voice"][value="Perú"]').checked = true;
+    document.qureySelector('input[name="voice"][value="Perú"]').checked = true;
     document.getElementById("departamento").value = "";
     document.getElementById("departamento-container").style.display = "block";
 }

@@ -29,5 +29,73 @@
                 "stars": 0
             }
         ]
+    },
+    {
+        "timestamp": "2025-07-12T17:36:21.083373",
+        "respuestas": [
+            {
+                "audio_id": 1,
+                "origin": "Sí",
+                "region": null,
+                "qualities": [
+                    "Naturalidad",
+                    "Claridad"
+                ],
+                "human_confidence": 9,
+                "stars": 4
+            },
+            {
+                "audio_id": 2,
+                "origin": "Sí",
+                "region": null,
+                "qualities": [
+                    "Confianza"
+                ],
+                "human_confidence": 2,
+                "stars": 3
+            },
+            {
+                "audio_id": 3,
+                "origin": "Perú",
+                "region": "Cajamarca",
+                "qualities": [
+                    "Cercanía"
+                ],
+                "human_confidence": 5,
+                "stars": 3
+            }
+        ]
+    },
+    {
+        "timestamp": "2025-07-12T17:50:24.359106",
+        "respuestas": [
+            {
+                "audio_id": 1,
+                "origin": "Sí",
+                "region": null,
+                "qualities": [
+                    "Claridad",
+                    "Confianza"
+                ],
+                "human_confidence": 9,
+                "stars": 4
+            },
+            {
+                "audio_id": 2,
+                "origin": "Sí",
+                "region": null,
+                "qualities": [],
+                "human_confidence": 5,
+                "stars": 5
+            },
+            {
+                "audio_id": 3,
+                "origin": "Sí",
+                "region": null,
+                "qualities": [],
+                "human_confidence": 5,
+                "stars": 4
+            }
+        ]
     }
 ]

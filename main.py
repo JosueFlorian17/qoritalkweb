@@ -39,6 +39,15 @@ def guardar_respuestas():
     except Exception as e:
         print("❌ Error al guardar respuestas:", str(e))
         return jsonify({"status": "error", "message": str(e)}), 500
+    
+@app.route("/ver_respuestas", methods=["GET"])
+def ver_respuestas():
+    if os.path.exists("respuestas.json"):
+        with open("respuestas.json", "r", encoding="utf-8") as f:
+            historial = json.load(f)
+        return jsonify(historial)
+    else:
+        return jsonify([])
 
 if __name__ == "__main__":
     app.run(debug=True)
