@@ -1,17 +1,24 @@
 const audios = [
     {
         id: 1,
-        url: "audio1.wav"
+        url: "audio1.wav",
+        frase: "Hoy me gusta la vida mucho menos, pero siempre me gusta vivir.",
+        autor: "César Vallejo"
     },
     {
         id: 2,
-        url: "audio2.wav"
+        url: "audio2.wav",
+        frase: "La vida es un eco: lo que envías, regresa.",
+        autor: "Proverbio chino"
     },
     {
         id: 3,
-        url: "audio3.wav"
+        url: "audio3.wav",
+        frase: "No esperes. El tiempo nunca será justo.",
+        autor: "Napoleon Hill"
     }
 ];
+
 
 let currentRound = 0;
 let responses = [];
@@ -24,7 +31,7 @@ function nextAudio() {
     const stars = document.querySelectorAll(".fa-star.checked-star");
     const qualities = [...document.querySelectorAll('input[name="qualities"]:checked')].map(q => q.value);
 
-    // Guardar respuesta
+    // Guardar respuesta actual
     responses.push({
         audio_id: audios[currentRound].id,
         origin: radioOrigin ? radioOrigin.value : null,
@@ -37,11 +44,14 @@ function nextAudio() {
     currentRound++;
 
     if (currentRound < audios.length) {
-        // Cargar siguiente audio
-        audioPlayer.src = audios[currentRound].url;
+        // Cargar siguiente audio y frase
+        const next = audios[currentRound];
+        audioPlayer.src = next.url;
+        document.getElementById("quote").textContent = `"${next.frase}"`;
+        document.getElementById("autor").innerHTML = `<strong>${next.autor}</strong>`;
         resetForm();
     } else {
-        // Enviar respuestas al backend
+        // Enviar respuestas
         fetch("/guardar_respuestas", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -49,8 +59,7 @@ function nextAudio() {
         })
         .then(res => res.json())
         .then(data => {
-            alert("¡Gracias! Tus respuestas fueron guardadas.");
-            location.reload(); // o redirige a otra página
+            window.location.href = "final.html";
         })
         .catch(err => {
             console.error("Error:", err);
@@ -59,12 +68,22 @@ function nextAudio() {
     }
 }
 
+function toggleDepartamento(radio) {
+    var container = document.getElementById('departamento-container');
+    if (radio.value === "Perú" && radio.checked) {
+        container.style.display = "block";
+    } else {
+        container.style.display = "none";
+        document.getElementById('departamento').value = "";
+    }
+}
+
 function resetForm() {
     document.getElementById("naturalness-slider").value = 5;
     document.getElementById("slider-value").textContent = 5;
     document.querySelectorAll(".fa-star").forEach(s => s.classList.remove("checked-star"));
     document.querySelectorAll('input[name="qualities"]').forEach(c => c.checked = false);
-    document.qureySelector('input[name="voice"][value="Perú"]').checked = true;
+    document.querySelectorAll('input[name="voice"][value="Otro"]').checked = true;
     document.getElementById("departamento").value = "";
     document.getElementById("departamento-container").style.display = "block";
 }
@@ -110,3 +129,6 @@ function rateVoice(rating) {
         star.classList.toggle('checked-star', index < rating);
     });
 }
+
+document.getElementById("quote").textContent = `"${audios[0].frase}"`;
+document.getElementById("autor").innerHTML = `<strong>${audios[0].autor}</strong>`;

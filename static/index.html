@@ -11,7 +11,7 @@
 
 
 <body>
-
+    
     <div class="text-container" id="quote-container">
         <h1>Frase del día</h1>
         <div id="quote-wrapper">
@@ -23,14 +23,18 @@
 
     <div class="voices-container">
 
-        <div class="audio-container" id="OpenAI-audio">
-            <p>Escucha la frase</p>
-            <audio id="audio-player" controls>
-                <source
-                    src="audio1.wav" type="audio/wav">
-                Tu navegador no soporta el elemento de audio.
-            </audio>
+        <div class="voices-container">
+            <div class="audio-container" id="OpenAI-audio">
+                <p>Escucha la frase</p>
+                <div class="custom-audio-player">
+                    <audio id="audio-player" controls>
+                        <source src="audio1.wav" type="audio/wav">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+            </div>
         </div>
+
 
 
     </div>
@@ -46,7 +50,7 @@
                     <input type="radio" name="voice" value="Perú" onchange="toggleDepartamento(this)">
                     Perú
                 </label>
-                <div id="departamento-container">
+                <div id="departamento-container" style="display:none;">
                     <label for="departamento">¿Puedes identificar una región específica del Perú al escuchar esta voz?</label>
                     <select id="departamento" name="departamento">
                         <option value="">Seleccione un departamento</option>
@@ -87,7 +91,7 @@
                     España
                 </label><br>
                 <label>
-                    <input type="radio" name="voice" value="otro" checked onchange="toggleDepartamento(this)">
+                    <input type="radio" name="voice" value="otro" onchange="toggleDepartamento(this)">
                     Otro
                 </label>
             </div>
@@ -127,7 +131,7 @@
 
     <div class="multiple-choice">
             <div class="question">
-                <h2>¿Cuál diría usted que es el origen de la persona que habla en este audio?</h2>
+                <h2>¿Nota pausas o entonaciones raras en el audio?</h2>
                 <label>
                     <input type="radio" name="voice" value="Sí" >
                     Sí
@@ -142,7 +146,7 @@
     
     <div class="stars-rating">
             <h2>Califica este audio</h2>
-            <span>Basado en su nivvel de claridad, entonación, fluidez, expresividad y naturalidad</span>
+            <span>Basado en su nivel de claridad, entonación, fluidez, expresividad y naturalidad</span>
             <br>
             <div class="stars">
                 <span class="fa fa-star" onclick="rateVoice(1)"></span>
@@ -155,8 +159,9 @@
 
 
     </div>
-    <div style="margin-top: 20px; text-align: center;">
+    <div style="margin-top: 20px; text-align: center; margin-bottom: 200px;">
     <button id="next-audio-btn" onclick="nextAudio()">Siguiente</button>
+    </div>
 </div>
 
 </body>

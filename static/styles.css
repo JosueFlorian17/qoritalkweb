@@ -54,14 +54,49 @@ button:hover {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    min-width: 300px;
+}
+/* Contenedor del reproductor */
+.audio-container {
+    text-align: center;
+    margin: 30px auto;
 }
 
-.audio-container {
+.audio-container p {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
+
+/* Icono de audífono */
+.audio-container p::before {
+    content: "🎧";
+    font-size: 1.2rem;
+}
+
+/* Estilo del reproductor */
+.audio-container audio {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    width: 250px;
+    height: 40px;
+    transition: all 0.3s ease-in-out;
+}
+
+.audio-container audio:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transform: scale(1.03);
+}
+
+
 
 /* -------------------- Múltiple Choice -------------------- */
 .multiple-choice {
